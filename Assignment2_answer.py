@@ -7,8 +7,11 @@ read_file.to_csv (r'C:\Users\Rina Mansor\Documents\Masters\PU\Computer Programmi
 
 f=open("File_C.csv", "w+")
 
-FileC= []
+Data= []
 with open('File_A.csv') as file:
     file_A = file.readlines()
     for line in range(0, len(file_A)):
-        FileC.append(re.split('\t',file_A[line], maxsplit=1))
+        Data.append(re.split('\t',file_A[line], maxsplit=1))
+df = pd.DataFrame(Data)
+df.to_csv("try3.csv", header=header_list, index=False)
+file2 = pd.read_csv(r'C:\Users\user\Desktop\Rina\try3.csv')
